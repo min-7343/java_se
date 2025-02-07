@@ -24,6 +24,23 @@ public class Anony{
 		FlyImpl f= new FlyImpl();
 		anony.useFly(f);
 		
+		//구현 클래스를 별도로 생성하지 않고, 이름이 없는 클래스를 생성하여 argumensts로 입력할 수 있다.
+		anony.useFly(new Fly() {
+
+			@Override
+			public String lift() {
+				
+				return "신발";
+			}
+
+			@Override
+			public String thrust() {
+				
+				return "점프";
+			}
+			
+		});
+		
 		
 		
 	}//class

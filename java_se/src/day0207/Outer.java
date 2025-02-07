@@ -13,6 +13,7 @@ public class Outer {
 	
 	public void outMethod() {
 		//inI=10; //안쪽클래스의 자원은 직접 사용불가
+		//dfdf
 //		inMethod();
 		//바깥 클래스에서 안쪽클래스이 자원을 사용할려면 안쪽클래스를 객체화하여 사용.
 		Inner in = this.new Inner();//둘이 같다.
