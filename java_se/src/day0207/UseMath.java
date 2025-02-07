@@ -13,7 +13,7 @@ public class UseMath {
 		double d=-2.7;
 		
 		int iResult=Math.abs(i);
-		double dResult=Math.abs(d);
+		double dResult=Math.abs(d);//
 		
 		System.out.println(i+"의 절대 값 "+iResult);
 		System.out.println(d+"의 절대 값 "+dResult);
