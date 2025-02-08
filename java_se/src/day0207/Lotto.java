@@ -19,7 +19,7 @@ public class Lotto {
 //						temp = (int) (Math.random() * 45) + 1;
 						i--;
 						break;
-					} // if
+					} //end if
 					num[i] = temp;
 				} // for
 			} //if
@@ -40,7 +40,9 @@ public class Lotto {
 	}// lottoMaker
 
 	public static void main(String[] args) {
+		//객체생성
 		Lotto lot = new Lotto();
+		//호출
 		lot.lottoMaker();
 
 	}// main
