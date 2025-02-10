@@ -50,7 +50,8 @@ public class UseCalendar {
 		.append(cal.get(Calendar.HOUR_OF_DAY)).append("시 ")
 		.append(cal.get(Calendar.HOUR)).append("시")
 		.append(cal.get(Calendar.MINUTE)).append("분")
-		.append(cal.get(Calendar.SECOND)).append("초");
+		.append(cal.get(Calendar.SECOND)).append("초")
+		;
 		
 		
 		
