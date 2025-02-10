@@ -1,4 +1,4 @@
-package day2010;
+package day0210;
 
 import java.util.List;// List 패키지
 import java.util.ArrayList;//

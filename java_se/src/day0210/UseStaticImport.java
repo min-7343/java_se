@@ -1,4 +1,4 @@
-package day2010;
+package day0210;
 
 import static java.lang.String.valueOf;
 import static java.lang.Double.parseDouble;

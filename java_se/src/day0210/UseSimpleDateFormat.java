@@ -1,4 +1,4 @@
-package day2010;
+package day0210;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
