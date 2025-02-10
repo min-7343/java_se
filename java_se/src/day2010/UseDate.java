@@ -12,8 +12,8 @@ public class UseDate {
 		System.out.println(date);
 		
 		//현재날짜가 아닌 다른 날짜를 얻을 때
-		Date date2=new Date(System.currentTimeMillis()+(1000*60*3));
-		// + 1000 : 시간이 1초 더 먼저 간다. +(1000*60*3) : 3분 먼저 간다.
+		Date date2=new Date(System.currentTimeMillis()+(1000*60*60*3));
+		// + 1000 : 시간이 1초 더 먼저 간다. +(1000*60*3) : 3분 먼저 간다. +(1000*60*60*3) : 3시간 먼저 간다
 		System.out.println(date2);
 	
 	
