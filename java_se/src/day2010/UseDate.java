@@ -12,9 +12,17 @@ public class UseDate {
 		System.out.println(date);
 		
 		//현재날짜가 아닌 다른 날짜를 얻을 때
-		Date date2=new Date(System.currentTimeMillis()+(1000*60*60*3));
+		//100*초*분*시*일*월*년
+		System.out.println(1000L*60*60*24*30*12*10);
+		Date date2=new Date(System.currentTimeMillis()+(1000L*60*60*24*30*12*10));
 		// + 1000 : 시간이 1초 더 먼저 간다. +(1000*60*3) : 3분 먼저 간다. +(1000*60*60*3) : 3시간 먼저 간다
+		//연산결과가 21억을 초과하면 int는 값을 저장할 수 없기 때문에 long으로 연산한다.
 		System.out.println(date2);
+		
+		//어제 날짜
+		Date date3=new Date(System.currentTimeMillis()-(1000*60*60*24*1));
+		System.out.println(date3);
+		
 	
 	
 	}//UseDate
