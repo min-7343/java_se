@@ -24,12 +24,10 @@ public class PrintYearMonthday {
 		case 2: System.out.println("2번 일본 : "+format2.format(new Date())); break;
 		case 3: System.out.println("3번 캐나다 : "+format3.format(new Date())); break;
 		default :System.out.println("그 외의 번호: "+format0.format(new Date())); break;
-		}
+		}//switch
 		
-		
-		
-		
-	}
+	}//PrintYearMonthday
+	
 	public static void main(String[] args) {
 	
 		new PrintYearMonthday(0);

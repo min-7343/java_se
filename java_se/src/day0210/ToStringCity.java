@@ -21,15 +21,13 @@ public class ToStringCity {
 		String data="서울시 강남구 역삼동,서울시 서초구 서초동.서울시 동대문구 동대문동[경기도 수원시 망포동,제주도 일도 이동,서울특별시 중구";
 	
 		int i=0;
-		StringTokenizer st=new StringTokenizer(data,",.[");
-		int count=st.countTokens();
-		int city_count=0;
-		String[] cityArr=new String[count];
+		StringTokenizer st=new StringTokenizer(data,",.["); //입력받은 data를 ",",".","["로 나눠 Token을 만든다.
+		int count=st.countTokens(); //토큰 개수
+		int city_count=0; //'서울'이 들어간 수 
+		String[] cityArr=new String[count]; //토큰을 저장하기 위한 배열
 		
-//		System.out.println(st);
-		
-		while(st.hasMoreTokens()) {
-			cityArr[i]=st.nextToken();
+		while(st.hasMoreTokens()) { //토큰이 있다면 계속 반복
+			cityArr[i]=st.nextToken(); //토큰을 배열에 순서대로 저장
 			System.out.println(cityArr[i]);
 			i++;
 		}
