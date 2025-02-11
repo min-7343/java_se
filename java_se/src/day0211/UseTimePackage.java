@@ -3,6 +3,7 @@ package day0211;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
@@ -83,6 +84,45 @@ public class UseTimePackage {
 		ld=ld.withDayOfMonth(25);
 		
 		System.out.println("변경 후 ld : "+ld);
+		
+		System.out.println("---------년, 월, 일 변경 동적-------------------------------");
+		
+		LocalDate ld3=LocalDate.now();
+		System.out.println("변경 전 ld3 : "+ld3);
+		
+		ld3=ld3.plusYears(1);//일년 후 //동적
+		System.out.println("변경 후 ld3 : "+ld3);
+		
+		ld3=ld3.minusYears(2);//이년 전 //동적
+		System.out.println("변경 후 ld3 : "+ld3);
+		
+		System.out.println("---------두 날짜간의 비교-------------------------------");
+		LocalDate ld4 =LocalDate.now(); //2025-2-11 : 현재날짜
+		LocalDate ld5 =LocalDate.of(2025,2,12); //2025-2-12 : 이 후날 //내일
+
+		System.out.println(ld4+" /"+ld5);
+		
+		System.out.println(ld4.isAfter(ld5));
+		System.out.println(ld4.isBefore(ld5));
+		System.out.println(ld4.isEqual(ld5));
+		
+		System.out.println("---------두 날짜간의 연산-------------------------------");
+		//1. 비교할 날짜를 가진 객체 생성
+		LocalDate ld6 =LocalDate.now(); //2025-2-11 : 현재날짜
+		LocalDate ld7 =LocalDate.of(2026,3,11); //2025-2-12 : 이 후날 //내일
+		
+		System.out.println("현재 날 : "+ld6+ ", 비교할 날짜 : "+ ld7);
+		
+		//2. 날짜를 연산하기위한 객체 얻기
+		Period p=Period.between(ld6, ld7);
+		
+		//3. 날짜간의 연산 (해당날짜끼리만 연산 수행 => 년-년  월-월  일-일 매칭)
+		System.out.println("년도의 차이 : "+p.getYears());
+		System.out.println("월의 차이 : "+p.getMonths());
+		System.out.println("일의 차이 : "+p.getDays());
+		
+		
+		
 		
 	}//UseTimePackage
 	
