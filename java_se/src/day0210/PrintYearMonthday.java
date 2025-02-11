@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 public class PrintYearMonthday {
 
 	public PrintYearMonthday(int num) {
-		SimpleDateFormat format0=new SimpleDateFormat("MM-dd-yy a hh : mm : ss EEEE",Locale.KOREA);
+	/*	SimpleDateFormat format0=new SimpleDateFormat("MM-dd-yy a hh : mm : ss EEEE",Locale.KOREA);
 		SimpleDateFormat format1=new SimpleDateFormat("MM-dd-yy a hh : mm : ss EEEE",Locale.US);
 		SimpleDateFormat format2=new SimpleDateFormat("MM-dd-yy a hh : mm : ss EEEE",Locale.JAPAN);
 		SimpleDateFormat format3=new SimpleDateFormat("MM-dd-yy a hh : mm : ss EEEE",Locale.CANADA);
@@ -25,6 +25,18 @@ public class PrintYearMonthday {
 		case 3: System.out.println("3번 캐나다 : "+format3.format(new Date())); break;
 		default :System.out.println("그 외의 번호: "+format0.format(new Date())); break;
 		}//switch
+		*/
+		String result ="";
+		//(0-한국, 1-미국, 2-일본, 3-캐나다)
+		Locale[] loc={Locale.KOREA,Locale.US,Locale.JAPAN,Locale.CANADA};
+		
+//		if(!(countryCode? -1 && countryCode<4)) {
+//			countryCode=0;
+//		}//end if
+//		
+//		SimpleDateFormat sdf
+//		=new 
+//		
 		
 	}//PrintYearMonthday
 	
