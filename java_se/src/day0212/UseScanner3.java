@@ -15,7 +15,7 @@ public class UseScanner3 {
 //		String name="";
 //		
 //		for( String str : nameList) {
-//			name=scan.nextLine();
+//			name=scan.next();
 //			nameList.add(name);
 //			if( name == "y" || name== "Y"){
 //				break;
@@ -36,18 +36,19 @@ public class UseScanner3 {
 		do {
 			System.out.println("이름을 입력해 주세요. 종료하실려면 y, Y를 입력해 주세요");
 			name = scan.nextLine();
-			list.add(name);
+			list.add(name); //입력받은 이름을 리스트에 추가
 			System.out.println("종료하실려면 y, Y를 입력해 주세요");
 			exitData = scan.next();
 			exitFlag = "Y".equals(exitData.toUpperCase()); // Y이면 true 발생
 		} while (!exitFlag); // !true => false 반복문을 빠져나간다.
 
+		scan.close(); //메모리 누수 막기
 		return list;
 	}// inputName
 
 	public void printName(List<String> list) {
 		for (String name : list) {
-			System.out.println(name);
+			System.out.println(name); //name? list?
 		} // end for
 
 	}// printName
