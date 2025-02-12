@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
-import javax.annotation.processing.SupportedSourceVersion;
 
 /**
  * List 사용<br>

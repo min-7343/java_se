@@ -26,8 +26,10 @@ public class UseScanner {
 		System.out.println("당신의 거주지를 입력 ");
 		String addr=scan.nextLine();//문자열을 입력 받는다
 		System.out.println("당신의 거주지 : "+ addr);
-
-	
+		
+		//csv데이터를 하나씩 받기
+		scan.close();
+		
 	}
 	
 	
