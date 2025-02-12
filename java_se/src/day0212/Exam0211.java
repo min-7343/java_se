@@ -56,7 +56,7 @@ public class Exam0211 {
 		int lastDay = cal.getActualMaximum(Calendar.DATE) + 1;// 해당월의 마지막 날
 		for (int tempDay = 1; tempDay < lastDay; tempDay++) {
 //			System.out.println(lastDay);
-			//증가하는 가싱읠 일(tempDay)로 Calendar 객체를 설정
+			//증가하는 가상의 일(tempDay)로 Calendar 객체를 설정
 			cal.set(Calendar.DAY_OF_MONTH,tempDay);
 			tempCal.append(tempDay).append("\t");
 			
