@@ -1,3 +1,4 @@
+
 package day0211;
 
 import java.util.Date;
@@ -19,6 +20,7 @@ public class MakeCalendar {
 	public String printCalendar(String year, String month) {
 		StringBuilder csb = new StringBuilder();
 		Calendar cal = Calendar.getInstance();
+		
 		int printYear=Integer.parseInt(year);
 		int printMonth=Integer.parseInt(month);
 		cal.set(printYear, printMonth - 1, 1);//원하는 년, 월 세팅.
@@ -68,6 +70,7 @@ public class MakeCalendar {
 	public static void main(String[] args) {
 		MakeCalendar mc = new MakeCalendar();
 		String input=mc.printCalendar("2025","4");
+		
 	}// main
 
 }// class

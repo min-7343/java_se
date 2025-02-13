@@ -12,10 +12,13 @@ import java.util.Scanner;
  *  List<Integer> 매개변수로 받아 출력하는 일  method 작성
  */
 public class ListCalendar {
+	 static List<Integer> ymd= new ArrayList<Integer>();
 
-
-	public void printListCalendar() {
-		List<Integer> ymd= new ArrayList<Integer>();
+	/**
+	 * 원하는 년도, 달을 입력 받아 리스트에 저장
+	 */
+	public void makeListCalendar() {
+		
 		Scanner scan = new Scanner(System.in);
 		System.out.println("원하는 년도 입력 : ");
 		int year=scan.nextInt();
@@ -25,23 +28,34 @@ public class ListCalendar {
 		
 		LocalDate ld = LocalDate.of(year, month, currentDay);
 		
-		int lastDay=ld.lengthOfMonth();
+		int lastDay=ld.lengthOfMonth(); //달의 마지막 날을 받는다.
 		
 		System.out.println("입력한 날  : "+ year+"년"+month+"월");
 		for(int i=0;i<lastDay;i++) {
 			ymd.add(currentDay);
 			currentDay++;
 		}
+		
+		print(ymd);
+		
+		scan.close();
+	}
+	
+	
+	/**
+	 * 리스트를 매개변수로 받아 출력
+	 * @param list
+	 */
+	public static void print(List<Integer> list) {
+		
 		for(int i=0;i<ymd.size();i++) {
 			System.out.printf(ymd.get(i) + "  ");
 		}
-		
-		scan.close();
 	}
 
 	public static void main(String[] args) {
 		ListCalendar lc = new ListCalendar();		
-		lc.printListCalendar();
+		lc.makeListCalendar();
 
 	}//main
 
