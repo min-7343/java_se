@@ -6,17 +6,12 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- * Inpitdialog에 입력된 값을 넣어 업무를 처리하는 프로그램을 작성하세요.
- * 1.입력 데이터가 csv형태라면 ScoreVo객체를 생성하여 입력값을 할당하고
- * ScoreVO객체를 java.util.List에 추가하는 작업을 수행.
- * 그 후 사용자에게 다시 InputDialog를 제공한다.
+ * Inpitdialog에 입력된 값을 넣어 업무를 처리하는 프로그램을 작성하세요. 1.입력 데이터가 csv형태라면 ScoreVo객체를
+ * 생성하여 입력값을 할당하고 ScoreVO객체를 java.util.List에 추가하는 작업을 수행. 그 후 사용자에게 다시
+ * InputDialog를 제공한다.
  * 
- * 2. csv형태가 아니고 "출력"이 입력되면 java.util.List에 추가된 모든 ScoreVO객체의 값을 
- * Console에 아래와 같이 출력한다.
- * 예) 
- * 번호	 이름		자바	오라클점수	총점		평균
- * 1	강태일	95	97		xxx		xx.xx
- * 2	김영하	45	90		xxx		xx.xx
+ * 2. csv형태가 아니고 "출력"이 입력되면 java.util.List에 추가된 모든 ScoreVO객체의 값을 Console에 아래와 같이
+ * 출력한다. 예) 번호 이름 자바 오라클점수 총점 평균 1 강태일 95 97 xxx xx.xx 2 김영하 45 90 xxx xx.xx
  * 
  * 번호는 출력시 사용하는 번호, 의미x
  * 
@@ -25,62 +20,94 @@ import javax.swing.JOptionPane;
 public class Exam0213 {
 
 	private List<ScoreVO> scoreList;
-	
-	
-	String name="";
-	String java="";
-	String oracle="";
-	
-	
-	
-	int cnt=0;
-	
-	public Exam0213() {
-		scoreList=new ArrayList<ScoreVO>();
-	}//Exam0213
-	
-	public void inputMenu() {
-		String inputData=JOptionPane.showInputDialog("\"이름,자바점수,오라클점수\"를 입력해주세요.\n");
-		if(inputData.contains(",") ){
-			addScoreData(inputData);
 
-		}else if(inputData.contains("종료")) {
+	public int cnt = 0;
+
+	
+
+   private String name = "";
+   private String java = "";
+   private String oracle = "";
+
+	public Exam0213() {
+		scoreList = new ArrayList<ScoreVO>();
+		inputMenu();
+	}// Exam0213
+
+	public void inputMenu() {
+
+//      inputMsg.append("\"이름,자바점수,오라클점수\"를 입력해주세요.\n")
+//      .append("\"출력\"을 입력하면 현재까지 입력된 값이 console에 출력됩니다.\n")
+//      .append("\"종료\"을 입력하면 프로그램이 종료됩니다.");
+
+		String inputDialog = JOptionPane.showInputDialog("\"이름,자바점수,오라클점수\"를 입력해주세요.\n");
+		
+//      System.out.println(tempStr);
+
+		
+		do {
+			if (inputDialog.contains(",")) {
+				String[] score =inputDialog.split(",");
+				addScoreData(score);
+				printData();
+			}
+		} while (inputDialog.equals("종료") || inputDialog == null);
+		if (inputDialog.equals("종료") || inputDialog == null) {
 			exitProg();
 		}
 	}
-	
+
+//
 	public void addScoreData(String[] score) {
 		
-	}
-	
-	public void Data() {
+		ScoreVO sv = new ScoreVO(); 
+		String name="";
+		int javaInt =0;
+		int oracleInt = 0;
 		
+		sv.setName(score[0]);
+		name=sv.getName();
+		javaInt =Integer.parseInt(score[1]);
+		sv.setJava(javaInt);
+		oracleInt=Integer.parseInt(score[2]);
+		sv.setOracle(oracleInt);
+		
+		
+//		for (int i = 0; i < score.length; i++) {
+//			sv.setName(score[i++]);
+//			javaInt = Integer.parseInt(score[i]);
+//			sv.setJava(javaInt);
+//			i++;
+//			oracleInt = Integer.parseInt(score[i++]);
+//			sv.setOracle(oracleInt);
+//		}
+		
+		String[] str=new String[];
+
+		scoreList.add();
+		System.out.println(scoreList);
 	}
-	
+
+	public void printData() {
+
+		int sum = javaInt + oracleInt;
+		StringBuilder inputData = new StringBuilder();
+		
+		inputData.append(sv.getName()).append(sv.getJava()).append(sv.getOracle());
+		for (ScoreVO score : scoreList) {
+			System.out.println(score);
+		}
+		System.out.println(sum);
+	}
+
+//
 	public void exitProg() {
 		System.exit(0);
+		printData();
 	}
-	
-	
-	public static void main(String[] args) {
-		
-		
-		StringBuilder inputMsg=new StringBuilder();
-		
-//		
-//		inputMsg.append("\"이름,자바점수,오라클점수\"를 입력해주세요.\n")
-//		.append("\"출력\"을 입력하면 현재까지 입력된 값이 console에 출력됩니다.\n")
-//		.append("\"종료\"을 입력하면 프로그램이 종료됩니다.");
-//		
-//		
-//		do{
-//		String name = JOptionPane.showInputDialog(inputMsg,"강태일,98,90");
-//		StringBuilder inputData = new StringBuilder();
-//		inputData.append(name+ " ").append(java+" ").append(oracle+ " ");
 //
-//		}while();
-//		
-//		
-	}// main
+//   
+//
+//      String name = JOptionPane.showInputDialog(inputMsg,"강태일,98,90");
 
 }// class

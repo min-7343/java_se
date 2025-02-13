@@ -21,7 +21,7 @@ public class UseList2 {
 		
 	
 		nameList.add(1,"Ocalcle");
-		System.out.println(nameList);
+		System.out.println("이거"+nameList);
 		// 리스트로 변경하는 것은 효율이 떨어진다. => LinkedList 사용
 		//차곡차곡 들어가기 => ArrayList, 리스트 변경이 자주 => LinkedList
 		

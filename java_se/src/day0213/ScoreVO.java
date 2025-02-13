@@ -23,10 +23,15 @@ public class ScoreVO {
 	private int oracle;
 	
 	public ScoreVO(){
-		
+		this.name=name;
+		this.java=java;
+		this.oracle=oracle;
 	}
 	
 	public ScoreVO(String name, int java, int oracle) {
+		setName(name);
+		setJava(java);
+		setOracle(oracle);
 
 	}//ScoreVO
 	
