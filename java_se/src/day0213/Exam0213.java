@@ -1,5 +1,8 @@
 package day0213;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -21,18 +24,63 @@ import javax.swing.JOptionPane;
  */
 public class Exam0213 {
 
+	private List<ScoreVO> scoreList;
+	
+	
+	String name="";
+	String java="";
+	String oracle="";
+	
+	
+	
+	int cnt=0;
+	
+	public Exam0213() {
+		scoreList=new ArrayList<ScoreVO>();
+	}//Exam0213
+	
+	public void inputMenu() {
+		String inputData=JOptionPane.showInputDialog("\"이름,자바점수,오라클점수\"를 입력해주세요.\n");
+		if(inputData.contains(",") ){
+			addScoreData(inputData);
+
+		}else if(inputData.contains("종료")) {
+			exitProg();
+		}
+	}
+	
+	public void addScoreData(String[] score) {
+		
+	}
+	
+	public void Data() {
+		
+	}
+	
+	public void exitProg() {
+		System.exit(0);
+	}
+	
+	
 	public static void main(String[] args) {
+		
+		
 		StringBuilder inputMsg=new StringBuilder();
-		inputMsg.append("\"이름,자바점수,오라클점수\"를 입력해주세요.\n")
-		.append("\"출력\"을 입력하면 현재까지 입력된 값이 console에 출력됩니다.\n")
-		.append("\"종료\"을 입력하면 프로그램이 종료됩니다.");
 		
-		String name = JOptionPane.showInputDialog(inputMsg,"강태일,98,90");
-		// InputDialog-> 메시지를 받을 수 있다.
-		
-		
-		
-		
+//		
+//		inputMsg.append("\"이름,자바점수,오라클점수\"를 입력해주세요.\n")
+//		.append("\"출력\"을 입력하면 현재까지 입력된 값이 console에 출력됩니다.\n")
+//		.append("\"종료\"을 입력하면 프로그램이 종료됩니다.");
+//		
+//		
+//		do{
+//		String name = JOptionPane.showInputDialog(inputMsg,"강태일,98,90");
+//		StringBuilder inputData = new StringBuilder();
+//		inputData.append(name+ " ").append(java+" ").append(oracle+ " ");
+//
+//		}while();
+//		
+//		
 	}// main
 
 }// class
