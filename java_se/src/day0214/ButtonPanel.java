@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class ButtonPanel extends Panel {
+	public ButtonPanel() {
 	
 	JPanel buttonjpl = new JPanel();
 
@@ -24,6 +25,9 @@ public class ButtonPanel extends Panel {
 	JButton jbtn11 = new JButton("0");
 	JButton jbtn12 = new JButton(".");
 	
+	
+	setLayout(new GridLayout(4,3));  //4행 3열
+	
 	add(jbtn1);
 	add(jbtn2);
 	add(jbtn3);
@@ -39,6 +43,8 @@ public class ButtonPanel extends Panel {
 	//버튼의 영역을 묶어서 센터에 넣어주기
 	//button_Panel 만들고 버튼 생성
 	//가지고 와서 센터에 넣어주기
-	setLayout(new GridLayout(4,3));  //4행 3열
-
+	
+	
+	}
+	
 }

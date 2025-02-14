@@ -18,9 +18,10 @@ public class Calculator extends JFrame{
 		
 		JTextField jtf =new JTextField();
 	
-//		JpanelNorth jpNorth=new JpanelNorth();
+		ButtonPanel jbNorth=new ButtonPanel();//버튼 클래스 객체니깐 버튼 객체명으로 만들어주고 위치 정해주면 된다.
 		
-		set
+		add(jtf,"North"); //필드 위치
+		add(jbNorth,"Center");//버튼위치
 		//버튼의 영역을 묶어서 센터에 넣어주기
 		//button_Panel 만들고 버튼 생성
 		//가지고 와서 센터에 넣어주기
