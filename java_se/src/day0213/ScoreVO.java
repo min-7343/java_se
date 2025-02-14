@@ -60,7 +60,10 @@ public class ScoreVO {
 	}//setOracle
 	
 	public String toString() {
-		return "";
+		int cnt=0;
+		String result="번호\t이름\t자바점수\t오라클점수\t합계\t평균";
+
+		return result;
 	}
 
 	

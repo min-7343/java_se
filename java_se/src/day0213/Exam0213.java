@@ -23,11 +23,9 @@ public class Exam0213 {
 
 	public int cnt = 0;
 
-	
-
-   private String name = "";
-   private String java = "";
-   private String oracle = "";
+	private String name = "";
+	private String java = "";
+	private String oracle = "";
 
 	public Exam0213() {
 		scoreList = new ArrayList<ScoreVO>();
@@ -39,75 +37,62 @@ public class Exam0213 {
 //      inputMsg.append("\"이름,자바점수,오라클점수\"를 입력해주세요.\n")
 //      .append("\"출력\"을 입력하면 현재까지 입력된 값이 console에 출력됩니다.\n")
 //      .append("\"종료\"을 입력하면 프로그램이 종료됩니다.");
-
 		String inputDialog = JOptionPane.showInputDialog("\"이름,자바점수,오라클점수\"를 입력해주세요.\n");
-		
-//      System.out.println(tempStr);
 
-		
-		do {
+		while (true) {
+			
 			if (inputDialog.contains(",")) {
-				String[] score =inputDialog.split(",");
+				String[] score = inputDialog.split(",");
 				addScoreData(score);
+				inputMenu();
+			}else if (inputDialog.equals("종료") || inputDialog == null) {
 				printData();
+				exitProg();
+			}else if(inputDialog.length()<0) {
+				System.out.println("형식에 맞지 않습니다.");
 			}
-		} while (inputDialog.equals("종료") || inputDialog == null);
-		if (inputDialog.equals("종료") || inputDialog == null) {
-			exitProg();
 		}
 	}
 
 //
 	public void addScoreData(String[] score) {
-		
-		ScoreVO sv = new ScoreVO(); 
-		String name="";
-		int javaInt =0;
-		int oracleInt = 0;
-		
-		sv.setName(score[0]);
-		name=sv.getName();
-		javaInt =Integer.parseInt(score[1]);
-		sv.setJava(javaInt);
-		oracleInt=Integer.parseInt(score[2]);
-		sv.setOracle(oracleInt);
-		
-		
-//		for (int i = 0; i < score.length; i++) {
-//			sv.setName(score[i++]);
-//			javaInt = Integer.parseInt(score[i]);
-//			sv.setJava(javaInt);
-//			i++;
-//			oracleInt = Integer.parseInt(score[i++]);
-//			sv.setOracle(oracleInt);
-//		}
-		
-		String[] str=new String[];
 
-		scoreList.add();
-		System.out.println(scoreList);
+		ScoreVO sv = new ScoreVO();
+		String name = "";
+		int javaInt = 0;
+		int oracleInt = 0;
+
+		sv.setName(score[0]);
+		name = sv.getName();
+		javaInt = Integer.parseInt(score[1]);
+		sv.setJava(javaInt);
+		oracleInt = Integer.parseInt(score[2]);
+		sv.setOracle(oracleInt);
+
+		scoreList.add(sv);
+//		scoreList.add(new ScoreVO(sv.getName(),sv.getJava(),sv.getOracle()));
 	}
 
 	public void printData() {
 
-		int sum = javaInt + oracleInt;
-		StringBuilder inputData = new StringBuilder();
-		
-		inputData.append(sv.getName()).append(sv.getJava()).append(sv.getOracle());
-		for (ScoreVO score : scoreList) {
-			System.out.println(score);
+		int sum = 0;
+		double arg = 0;
+
+		for (int i = 0; i < scoreList.size(); i++) {
+			sum = +scoreList.get(i).getJava() + scoreList.get(i).getOracle();
+			arg = sum / 2;
+			System.out.println((i + 1)+"\t" + scoreList.get(i).getName() + "\t" + scoreList.get(i).getJava() + "\t"
+					+ scoreList.get(i).getOracle() + "\t" + sum + "\t" + arg);
 		}
-		System.out.println(sum);
+
 	}
 
 //
 	public void exitProg() {
 		System.exit(0);
+		toString();
 		printData();
 	}
-//
-//   
-//
 //      String name = JOptionPane.showInputDialog(inputMsg,"강태일,98,90");
 
 }// class
