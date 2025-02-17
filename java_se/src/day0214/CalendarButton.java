@@ -28,11 +28,11 @@ public class CalendarButton extends JFrame {
 		}
 
 //		for(int i=0;i<day.length;i++) {
-//			if(i%7==0) {System.out.println();}
+//			if(i%7=1) {System.out.println();}
 //			System.out.printf(day[i]+"\t");
 //		}
 
-//		//3.배치관리자를 설정하고 , 컴포넌트 배치
+		//3.배치관리자를 설정하고 , 컴포넌트 배치
 		add("Center",jpCenter);
 		//4.윈도우 크기 설정
 		setSize(560,600);
@@ -50,12 +50,15 @@ public class CalendarButton extends JFrame {
 		int monthInt = Integer.parseInt(month);
 		cal.set(Calendar.YEAR, yearInt);
 		cal.set(Calendar.MONTH, monthInt-1);
+		cal.set(yearInt, monthInt-1, 1);
 		StringBuilder sb = new StringBuilder();
 		int date = 1;
 		int endDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 		int startDay = cal.get(Calendar.DAY_OF_WEEK);
 
-		for (int i = 1; i < 43; i++) {
+		System.out.println(startDay);
+		System.out.println(endDay);
+		for (int i = 0; i < 43; i++) {
 			if (i < startDay) {
 				sb.append(" ").append(",");
 			}else if( i>= startDay && i <endDay+startDay) {
