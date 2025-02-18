@@ -33,9 +33,9 @@ public class UseIcon extends JFrame {
 		jbtn.setVerticalTextPosition(JButton.TOP); //TOP, Cener,Bottom
 		
 		//수평
-		jbtn2.setHorizontalTextPosition(JButton.CENTER); //TOP, Cener,Bottom
-		jbtn3.setVerticalTextPosition(JButton.BOTTOM); //TOP, Cener,Bottom
-		jbtn3.setHorizontalTextPosition(JButton.CENTER); //TOP, Cener,Bottom
+		jbtn2.setHorizontalTextPosition(JButton.CENTER); //Left, center, Right
+		jbtn3.setVerticalTextPosition(JButton.BOTTOM); //TOP, Center,Bottom
+		jbtn3.setHorizontalTextPosition(JButton.CENTER); //Left, center, Right
 		
 		//RollOver
 		jbtn3.setRolloverIcon(ii4);
