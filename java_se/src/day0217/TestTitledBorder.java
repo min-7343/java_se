@@ -53,7 +53,7 @@ public class TestTitledBorder extends JFrame {
 		add("North",jlblTitle);
 		add("Center",jpCenter);
 		//윈도우크기설정
-		setBounds(50,50,300,250);
+		setBounds(50,100,300,250);
 		//가시화
 		setVisible(true);
 		//윈도우 종료처리
