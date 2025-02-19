@@ -45,7 +45,7 @@ public class SameEvent extends WindowAdapter implements ActionListener {
 			String file=fdOpen.getFile();
 //			System.out.println(diretory + file);
 			//타이틀바에 선택한 파일의 경로와 파일명을 추가
-//			sed.setTitle(diretory + file);
+//			sed.setTitle(diretory + file);//또 nullnull나옴
 			//타이틀 바 이름 설정
 			if(diretory !=null) {
 				sed.setTitle(diretory + file);
