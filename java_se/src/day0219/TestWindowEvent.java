@@ -23,7 +23,7 @@ public class TestWindowEvent extends JFrame implements WindowListener {// xë¥¼ ë
 	}
 	public static void main(String[] args) {
 		new TestWindowEvent();
-		new TestWindowEvent2();
+
 
 	}//main
 	@Override
