@@ -9,22 +9,18 @@ import javax.swing.JTextField;
 
 public class ClickButtonListener implements ActionListener{
 	private RadioButtonDesign rbd;
-	private String selectedGender;//성별 선택시 데이터 물력할 문자열
-	private JTextArea jtextArea;
-	private JRadioButton maleButton;
-	private JRadioButton femaleButton;
-	
-	public ClickButtonListener(RadioButtonDesign rbd) {
+
+	public ClickButtonListener(RadioButtonDesign rbd) {//디자인에서 받아온 값
 		this.rbd=rbd;
 	}//ClickButtonListener
 	public void actionPerformed(ActionEvent ae) {//할 이벤트
-		//JTextField에 입력된 값을 받아와서
-		String selectedGender="";
+		//JTextArea에 입력된 값을 받아와서
+		JTextArea jtext=rbd.getJtextArea();
 		//버튼이 눌리면
-		if(maleButton.isSelected()) {
-			jtextArea.append("남자\n");
+		if(rbd.getMaleButton().isSelected()) { //디자인에서 받아온 값을 해야 하니깐!!rbd!!
+			jtext.append("남자\n");
 		}else {
-			selectedGender="여자";
+			jtext.append("여자\n");
 		}
 		
 	}//actionPerformed

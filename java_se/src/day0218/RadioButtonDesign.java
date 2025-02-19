@@ -38,7 +38,7 @@ public class RadioButtonDesign extends JFrame {
 		//입력버튼
 		clickButton=new JButton("입력");
 		
-		//패널에 라이오버튼,입력버튼 넣기
+		//패널에 라이오버튼,라벨,입력버튼 넣기
 		genderJP.add(maleButton);
 		genderJP.add(ml);
 		genderJP.add(femaleButton);
@@ -48,18 +48,14 @@ public class RadioButtonDesign extends JFrame {
 		//JTextArea
 		jtextArea = new JTextArea(50,50);
 		JScrollPane jslp=new JScrollPane(jtextArea);
-		//남여버튼 클릭
+
 		//버튼 클릭 이벤트 처리
 		ClickButtonListener cbl = new ClickButtonListener(this);
-
-		
-		maleButton.addActionListener(cbl);
-		femaleButton.addActionListener(cbl);
 		clickButton.addActionListener(cbl);
-		
+	
 		//컴보넌트 추가
 		add("North",genderJP);
-		add(jslp);
+		add("Center",jslp);
 		//크기
 		setBounds(20,20,400,400);
 		//사용자 보이기
@@ -68,8 +64,6 @@ public class RadioButtonDesign extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}//RadioButtonDesign
-	
-	
 	
 	public JTextArea getJtextArea() {
 		return jtextArea;

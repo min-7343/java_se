@@ -6,8 +6,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public class UseTable extends JFrame {
-	public UseTable() {
+public class UseJTable extends JFrame {
+	public UseJTable() {
 		super("JTble을 사용");
 
 		String[] columNames= {"번호","이름","주소","비고"};
@@ -44,7 +44,7 @@ public class UseTable extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new UseTable();
+		new UseJTable();
 	}//main
 
 }//class

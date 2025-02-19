@@ -8,8 +8,8 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 @SuppressWarnings("serial")
-public class UseList extends JFrame { //List - 스크롤 바x
-	public UseList() {
+public class UseJList extends JFrame { //List - 스크롤 바x
+	public UseJList() {
 		super("JList사용");
 		//1.모델 사용
 		DefaultListModel<String> dlm= new DefaultListModel<String>();
@@ -39,7 +39,10 @@ public class UseList extends JFrame { //List - 스크롤 바x
 	}//UseList
 
 	public static void main(String[] args) {
-		new UseList();
+		new UseJList();
+		new UseJTable();
+		//창 두 개 가 뜬다.
+		//창을 하나만 닫고 싶을 때 윈도운 이벤트 처리를 한다.
 
 	}//main
 
