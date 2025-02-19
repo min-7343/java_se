@@ -30,6 +30,7 @@ public class LoginForm extends JFrame {
 		jpCenter.setLayout(new GridLayout(3,1)); //3행1열
 		jpCenter.setBorder(new TitledBorder("입력정보"));//네모박스의 이름
 		
+		//인스턴스 변수로 만들기
 		jtfId=new JTextField();//1행
 		jpfPass=new JPasswordField();//2행
 		jlblOutput=new JLabel();//3행
@@ -47,25 +48,30 @@ public class LoginForm extends JFrame {
 		//LineBorder-색을 넣을 수 있다.
 		jlblOutput.setBorder(new LineBorder(Color.red));
 		
-		jtfId.addKeyListener(new LoginEvent(this));
-		jpfPass.addKeyListener(new LoginEvent(this));
-		jlblOutput.addKeyListener(new LoginEvent(this));
+	
 		
 		jpCenter.add(jtfId);
 		jpCenter.add(jpfPass);
 		jpCenter.add(jlblOutput);
 		
-		//레이아웃 설정
 		
 		//배치
 		add("North",jlblTitle);
 		add("Center",jpCenter);
+		
+		//
+		TLoginFormEvt lfe=new TLoginFormEvt(this);
+		//윈도우이벤트
+		addWindowListener(lfe);
+		//액션이벤트
+		jtfId.addActionListener(lfe);
+		jpfPass.addActionListener(lfe);
+		
 		//윈도우크기설정
 		setBounds(50,100,300,250);
 		//가시화
 		setVisible(true);
-		//윈도우 종료처리
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
 	}//TestTitledBorder
 	
 	
