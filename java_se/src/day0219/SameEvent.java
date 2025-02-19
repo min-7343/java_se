@@ -67,8 +67,6 @@ public class SameEvent extends WindowAdapter implements ActionListener {
 			
 //			System.out.println(jfcSave.getSelectedFile()); //디렉토리랑 파일명이 같이 나온다.
 			
-			
-			
 		}
 		
 	}//actionPerformed
