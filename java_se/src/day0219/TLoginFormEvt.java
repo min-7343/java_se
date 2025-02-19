@@ -29,57 +29,38 @@ public class TLoginFormEvt extends WindowAdapter implements ActionListener {
 		lf.dispose();
 	}//windowClosing
 
-	private void loginProcess() {
-
-		
-		String id=jtfId.getText();
-		if(id.isEmpty()) {
-			jlblOutput.setText("id는 필수 입력");
-			return;
-		}//end if
-		
-		jpfPass.requestFocus();//커서를 비번입력으로 이동
-		
-		//jpfPass.getPassword()는 반환형이 char[]이므로 사요하기 불편
-		//=>String 통합하여 저장하면 사용하기 편리
-		String pass=new String (jpfPass.getPassword());
-		if(pass.isEmpty()) {
-			jlblOutput.setText("비번는 필수 입력");
-			return;
-		}
-		
-		
-		
-	}//
-	
-	@Override
-	public void actionPerformed(ActionEvent ae) {
-		
+	private void loginProcess(String id,String pass) {
 		JTextField jtfId=lf.getJtfId();
 		JPasswordField jpfPass =lf.getJpfPass();
 		JLabel jlblOutput=lf.getJlblOutput();
 		
-		String id=jtfId.getText();
-		if(id.isEmpty()) {
-			jlblOutput.setText("id는 필수 입력");
-			return;
-		}//end if
-		
-		jpfPass.requestFocus();//커서를 비번입력으로 이동
-		
 		//jpfPass.getPassword()는 반환형이 char[]이므로 사요하기 불편
 		//=>String 통합하여 저장하면 사용하기 편리
-		String pass=new String (jpfPass.getPassword());
-		if(pass.isEmpty()) {
-			jlblOutput.setText("비번는 필수 입력");
-			return;
-		}
-		
+	}//
+	
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+		JTextField jtfId=lf.getJtfId();
+		JPasswordField jpfPass =lf.getJpfPass();
+		JLabel jlblOutput=lf.getJlblOutput();
 		
 		if(ae.getSource()==lf.getJtfId()) {
+			//jpfPass.getPassword()는 반환형이 char[]이므로 사용하기 불편
+			//=>String 통합하여 저장하면 사용하기 편리
+			String id=jtfId.getText();
+			if(id.isEmpty()) {
+				jlblOutput.setText("비번는 필수 입력");
+				return;
+			}
+			jpfPass.requestFocus();//커서를 비번입력으로 이동
 			loginProcess();
 		}
-		if(ae.getSource()==lf.getPass()) {
+		if(ae.getSource()==lf.getJpfPass()) {
+			String pass=new String (jpfPass.getPassword());
+			if(pass.isEmpty()) {
+				jlblOutput.setText("비번는 필수 입력");
+				return;
+			}
 			loginProcess();
 		}
 	}//actionPerformed
