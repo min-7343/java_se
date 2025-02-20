@@ -3,6 +3,7 @@ package day0220;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
@@ -15,13 +16,19 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
 
+
+/**
+ * 메인 MainPersonInfo
+ */
 @SuppressWarnings("serial")
 public class MainPersonInfo extends JFrame {
+	
 	//JTextFiled
 	private JTextField jtName;
 	private JTextField jtAge;
-	
+	private JTextField jtTel;
 	//버튼
 	private JButton insert;
 	private JButton change;
@@ -29,19 +36,26 @@ public class MainPersonInfo extends JFrame {
 	private JButton close;
 	private JRadioButton jrbMan;
 	private JRadioButton jrbWoman;
-	private JTextField jtTel;
 	
-	private  DefaultListModel<String> pdlm;
-	private JList<String> jl; //has a 관계
+	////////////List 관련 - 이름 헷갈리지 않기////////////////
+	//입력용 JList
+	private DefaultListModel<UserInfo> pdlm;
+	private JList<UserInfo> userListView;
+    //저장용 ArrayList
+    private ArrayList<UserInfo> userList;
 	
 	public MainPersonInfo(){
 		super("숙제");
-		//JList
-		pdlm=new DefaultListModel<String>();
-		jl=new JList<String>(pdlm);
-		JScrollPane jsp=new JScrollPane(jl); //has a 관계
+		//JList 정의
+		pdlm=new DefaultListModel<UserInfo>();
+		userListView=new JList<>(pdlm);
+		//userListView-선택창으로 만들기
+		userListView.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);//단일선택모드
+		userList = new ArrayList<>();//저장소
+		
+
 		//위쪽 창
-		//위의 판넬
+		//위의 판넬(jpl-jplWest, jplEast)
 		JPanel jpl=new JPanel();
 		//위의 왼쪽 판넬
 		JPanel jplWest=new JPanel();
@@ -70,12 +84,13 @@ public class MainPersonInfo extends JFrame {
 		jtTel=new JTextField(15);
 		
 		//아래버튼
-		JPanel jpb=new JPanel();
+		JPanel jpb=new JPanel();//버튼판넬
 		insert=new JButton("추가");
 		change=new JButton("변경");
 		delete=new JButton("삭제");
 		close=new JButton("종료");
 		
+		//이름,나이,성별,전화번호 - 각 판넬에 넣기
 		jplName.add(jlName);
 		jplName.add(jtName);
 		jplAge.add(jlAge);
@@ -88,56 +103,49 @@ public class MainPersonInfo extends JFrame {
 		jplTel.add(jlTel);
 		jplTel.add(jtTel);
 		
+		//jplWest-jplName,jplAge,jplGender,jplTel
 		jplWest.add(jplName);
 		jplWest.add(jplAge);
 		jplWest.add(jplGender);
 		jplWest.add(jplTel);
+		//jplWest의 레이아웃 (4행1열)
+		jplWest.setLayout(new GridLayout(4,1));
 		
-		jpl.add("West",jplWest);//왼쪽 입력창 왼쪽으로
-		
-		//버튼넣기
+		//jpb - 4개 버튼 넣기
 		jpb.add(insert);
 		jpb.add(change);
 		jpb.add(delete);
 		jpb.add(close);
 		
-		jpl.setLayout(new GridLayout(1, 2));
-		setLayout(new GridLayout(2,2));
+		//////////////레이아웃///////////////////
+		jpl.add("West",jplWest);//왼쪽 입력창 왼쪽으로
+		add("Center",jpl);
+		jpl.add(new JScrollPane(userListView));
 		
-		jpb.setLayout(new FlowLayout());
+		add("South",jpb);//버튼 레이아웃
 		
-		add("West",jpl);
-		add("East",jsp);
-		add("Center",jpb);
-		
-//		jpl.add("East",jplEast);
-		//위의 오른쪽 JList의 위치
-		//위의 오른쪽 JList
-		//위의 왼쪽 배치
 		////////////////이벤트등록//////////////////////
 		MainPersonInfoEvt mpif = new MainPersonInfoEvt(this);
 		addWindowListener(mpif);
 		//추가버튼이벤트
 		insert.addActionListener(mpif);
-		
-		
-		
-		
-		
-		
-		
-		
+		//수정버튼이벤트
+		change.addActionListener(mpif);
+		//삭제버튼이벤트
+		delete.addActionListener(mpif);
 		//종료버튼이벤트
 		close.addActionListener(mpif);
 		
-		jsp.setSize(100,150);
+		//크기 정하기
+		userListView.setSize(100,150);
+		setBounds(10,10,500,300);
 		
-		setBounds(10,10,500,500);
+		
 		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		
 	}
-
+//////////////getter 만들기//////////
 	public JTextField getJtName() {
 		return jtName;
 	}
@@ -174,13 +182,19 @@ public class MainPersonInfo extends JFrame {
 		return jtTel;
 	}
 
-	public DefaultListModel<String> getPdlm() {
+	public DefaultListModel<UserInfo> getPdlm() {
 		return pdlm;
 	}
 
-	public JList<String> getJl() {
-		return jl;
+	public JList<UserInfo> getUserListView() {
+		return userListView;
 	}
+
+	public ArrayList<UserInfo> getUserList() {
+		return userList;
+	}
+
+
 
 	
 }

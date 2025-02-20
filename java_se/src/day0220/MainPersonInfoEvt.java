@@ -11,20 +11,31 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
+
+public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
+	
+	private UserInfo user; //사용자 정보-만들 객체들
+	
 	private MainPersonInfo mpi;
-	private JButton bInsert;
-	private JButton bChage;
-	private JButton bDelete;
-	private JButton bClose;
+
 	
 	
 	public MainPersonInfoEvt(MainPersonInfo mpi) {
 		this.mpi = mpi;
 	}
+	
+	
+	/////////////4번 버튼이벤트 시작///////////
 	private void windowClosing() {//windowClosing오버로딩- 윈도우 닫기 전처리 하기 위해(수정못하게)
-		//윈도우를 종료하기 전에 처리해야할 코드
 		mpi.dispose();
 	}//WindowClosing
 	
@@ -32,7 +43,7 @@ public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
 	public void windowClosing(WindowEvent we) {//윈도우 이벤트
 		windowClosing();
 	}//windowClosing
-
+	//////////////4번 버튼이벤트 끝///////////
 	
 	
 	
@@ -40,31 +51,59 @@ public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
 	public void actionPerformed(ActionEvent ae) {
 		StringBuilder sb= new StringBuilder();
 		String gender="";
-		
+		//추가버튼
 		if (ae.getSource() == mpi.getInsert()) {
-			String name=mpi.getName();
-			String age=mpi.getJtAge().toString();
+			String name=mpi.getJtName().getText();//toString()하면 안나옴 오류.당연하잖아...
+			String ageText=mpi.getJtAge().getText();
+			int age=Integer.parseInt(ageText);
 			if(mpi.getJrbMan().isSelected()) {
 				gender="남";
 			}else if(mpi.getJrbWoman().isSelected()) {
 				gender="여";
 			}
-			String telNum=mpi.getJtTel().toString();
+			String telNum=mpi.getJtTel().getText();
 			
-			sb.append(name).append(",").append(age).append(",").append(gender).append(",").append(telNum);
-		}
+			user = new UserInfo(name,age,gender,telNum);
+            
+			mpi.getUserList().add(user);
+            mpi.getPdlm().addElement(user);
 
+            //초기화
+            mpi.getJtName().setText("");
+            mpi.getJtAge().setText("");
+            //////////왜 초기화안되는 거야...성별 라디오버튼 초기화 안됨.확인할것
+            mpi.getJrbMan().setSelected(false);
+            mpi.getJrbWoman().setSelected(false);
+            mpi.getJtTel().setText("");
+
+		}
+		//수정버튼
 		if (ae.getSource() == mpi.getChange()) {
-
+			int selectIndex = mpi.getUserListView().getSelectedIndex();
+			if(selectIndex>=0) {
+                UserInfo selectUser = mpi.getPdlm().getElementAt(selectIndex);
+                mpi.getJtName().setText(selectUser.name);
+         /////////////할 곳. 아 나이 왜안되니.............다른거부터하자...확인할것
+                mpi.getJtAge().setText(String.valueOf(selectUser.age));
+                mpi.getJtTel().setText(selectUser.phone);
+                if (selectUser.gender.equals("Male")) {
+                	mpi.getJrbMan().setSelected(true);
+                } else {
+                	mpi.getJrbWoman().setSelected(true);
+                }
+                mpi.getPdlm().removeElementAt(selectIndex);//모델 삭제-removeElementAt
+                mpi.getUserList().remove(selectIndex);//리스트 삭제remove
+			}
 		}
+		//삭제버튼
 		if (ae.getSource() == mpi.getDelete()) {
-
+			int deleteIndex=mpi.getUserListView().getSelectedIndex();
+			mpi.getPdlm().removeElementAt(deleteIndex);
+			mpi.getUserList().remove(deleteIndex);
 		}
+		//종료버튼
 		if (ae.getSource() == mpi.getClose()) {
 			windowClosing();
 		}
-
 	}
-
-
 }
