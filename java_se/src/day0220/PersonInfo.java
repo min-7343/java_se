@@ -3,25 +3,22 @@ package day0220;
 /**
  * 사용자 정보 저장(구조틀)
  */
-public class UserInfo {
+public class PersonInfo {
 	
 	String name;
 	int age;
 	String gender;
-	String phone;
+	String telNum;
 
-	public UserInfo() {
+	public PersonInfo() {
 		
 	}
-	public UserInfo(String name, int age, String gender, String phone) {
-//		this.name = name;
-//		this.age = age;
-//		this.gender = gender;
-//		this.phone = phone;
+	public PersonInfo(String name, int age, String gender, String telNum) {
+
 		setName(name);
 		setAge(age);
 		setGender(gender);
-		setPhone(phone);
+		setPhone(telNum);
 		
 	}
 
@@ -44,14 +41,14 @@ public class UserInfo {
 		this.gender = gender;
 	}
 	public String getPhone() {
-		return phone;
+		return telNum;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhone(String telNum) {
+		this.telNum = telNum;
 	}
 	@Override
 	public String toString() {
-		return name + " - " + age + " - " + gender + " - " + phone;
+		return name + " - " + age + " - " + gender + " - " + telNum;
 	}
 	
 }

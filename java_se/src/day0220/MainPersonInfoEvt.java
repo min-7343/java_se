@@ -23,7 +23,7 @@ import java.awt.event.WindowEvent;
 
 public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
 	
-	private UserInfo user; //사용자 정보-만들 객체들
+	private PersonInfo user; //사용자 정보-만들 객체들
 	
 	private MainPersonInfo mpi;
 
@@ -49,7 +49,6 @@ public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent ae) {
-		StringBuilder sb= new StringBuilder();
 		String gender="";
 		//추가버튼
 		if (ae.getSource() == mpi.getInsert()) {
@@ -63,9 +62,9 @@ public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
 			}
 			String telNum=mpi.getJtTel().getText();
 			
-			user = new UserInfo(name,age,gender,telNum);
+			user = new PersonInfo(name,age,gender,telNum);
             
-			mpi.getUserList().add(user);
+			mpi.getPersonList().add(user);
             mpi.getPdlm().addElement(user);
 
             //초기화
@@ -79,27 +78,27 @@ public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
 		}
 		//수정버튼
 		if (ae.getSource() == mpi.getChange()) {
-			int selectIndex = mpi.getUserListView().getSelectedIndex();
+			int selectIndex = mpi.getPersonListView().getSelectedIndex();
 			if(selectIndex>=0) {
-                UserInfo selectUser = mpi.getPdlm().getElementAt(selectIndex);
+                PersonInfo selectUser = mpi.getPdlm().getElementAt(selectIndex);
                 mpi.getJtName().setText(selectUser.name);
          /////////////할 곳. 아 나이 왜안되니.............다른거부터하자...확인할것
                 mpi.getJtAge().setText(String.valueOf(selectUser.age));
-                mpi.getJtTel().setText(selectUser.phone);
+                mpi.getJtTel().setText(selectUser.telNum);
                 if (selectUser.gender.equals("Male")) {
                 	mpi.getJrbMan().setSelected(true);
                 } else {
                 	mpi.getJrbWoman().setSelected(true);
                 }
                 mpi.getPdlm().removeElementAt(selectIndex);//모델 삭제-removeElementAt
-                mpi.getUserList().remove(selectIndex);//리스트 삭제remove
+                mpi.getPersonList().remove(selectIndex);//리스트 삭제remove
 			}
 		}
 		//삭제버튼
 		if (ae.getSource() == mpi.getDelete()) {
-			int deleteIndex=mpi.getUserListView().getSelectedIndex();
+			int deleteIndex=mpi.getPersonListView().getSelectedIndex();
 			mpi.getPdlm().removeElementAt(deleteIndex);
-			mpi.getUserList().remove(deleteIndex);
+			mpi.getPersonList().remove(deleteIndex);
 		}
 		//종료버튼
 		if (ae.getSource() == mpi.getClose()) {

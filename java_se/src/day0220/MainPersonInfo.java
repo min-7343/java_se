@@ -39,19 +39,19 @@ public class MainPersonInfo extends JFrame {
 	
 	////////////List 관련 - 이름 헷갈리지 않기////////////////
 	//입력용 JList
-	private DefaultListModel<UserInfo> pdlm;
-	private JList<UserInfo> userListView;
+	private DefaultListModel<PersonInfo> pdlm;
+	private JList<PersonInfo> personListView;
     //저장용 ArrayList
-    private ArrayList<UserInfo> userList;
+    private ArrayList<PersonInfo> personList;
 	
 	public MainPersonInfo(){
 		super("숙제");
 		//JList 정의
-		pdlm=new DefaultListModel<UserInfo>();
-		userListView=new JList<>(pdlm);
+		pdlm=new DefaultListModel<PersonInfo>();
+		personListView=new JList<>(pdlm);
 		//userListView-선택창으로 만들기
-		userListView.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);//단일선택모드
-		userList = new ArrayList<>();//저장소
+		personListView.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);//단일선택모드
+		personList = new ArrayList<>();//저장소
 		
 
 		//위쪽 창
@@ -120,7 +120,7 @@ public class MainPersonInfo extends JFrame {
 		//////////////레이아웃///////////////////
 		jpl.add("West",jplWest);//왼쪽 입력창 왼쪽으로
 		add("Center",jpl);
-		jpl.add(new JScrollPane(userListView));
+		jpl.add(new JScrollPane(personListView));
 		
 		add("South",jpb);//버튼 레이아웃
 		
@@ -137,7 +137,7 @@ public class MainPersonInfo extends JFrame {
 		close.addActionListener(mpif);
 		
 		//크기 정하기
-		userListView.setSize(100,150);
+		personListView.setSize(100,150);
 		setBounds(10,10,500,300);
 		
 		
@@ -182,16 +182,16 @@ public class MainPersonInfo extends JFrame {
 		return jtTel;
 	}
 
-	public DefaultListModel<UserInfo> getPdlm() {
+	public DefaultListModel<PersonInfo> getPdlm() {
 		return pdlm;
 	}
 
-	public JList<UserInfo> getUserListView() {
-		return userListView;
+	public JList<PersonInfo> getPersonListView() {
+		return personListView;
 	}
 
-	public ArrayList<UserInfo> getUserList() {
-		return userList;
+	public ArrayList<PersonInfo> getPersonList() {
+		return personList;
 	}
 
 
