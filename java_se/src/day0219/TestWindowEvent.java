@@ -10,6 +10,7 @@ import javax.swing.JFrame;
  * 윈도우 이벤트 처리
  */
 //1.윈도우 이벤트를 처리하기위해 WindowListener를 구현
+@SuppressWarnings("serial")
 public class TestWindowEvent extends JFrame implements WindowListener {// x를 눌렀을 때 효과있다.
 
 	public TestWindowEvent() {

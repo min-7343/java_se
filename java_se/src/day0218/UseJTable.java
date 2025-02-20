@@ -30,17 +30,10 @@ public class UseJTable extends JFrame {
 		add("Center",jsp); //컬럼명이 반영이 안된다. => 스크롤 바가 있으면 나온다.
 		
 		
-		
 		setBounds(100,50,600,400);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
-		
-		
-		
-		
-		
-		
+			
 	}
 
 	public static void main(String[] args) {

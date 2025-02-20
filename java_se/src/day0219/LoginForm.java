@@ -60,7 +60,7 @@ public class LoginForm extends JFrame {
 		add("Center",jpCenter);
 		
 		//
-		TLoginFormEvt lfe=new TLoginFormEvt(this);
+		LoginFormEvt lfe=new LoginFormEvt(this);
 		//윈도우이벤트
 		addWindowListener(lfe);
 		//액션이벤트
