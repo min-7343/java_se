@@ -21,7 +21,7 @@ public class SubWinEvt extends WindowAdapter implements ActionListener {
 	}//windowClosing
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent ae) {
 		sw.dispose();
 
 	}//actionPerformed
