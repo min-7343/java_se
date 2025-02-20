@@ -39,6 +39,7 @@ public class SubWin extends JDialog {
 		//부모창에 다이얼로그 넣기
 //		System.out.println("부모창의 시작 좌표 : "+ mw.getX()+ " , "+mw.getY());
 		setBounds(mw.getX()+300, mw.getY()+100,300,400);
+		
 //		setBounds(100,100,300,400);
 		
 		setVisible(true);
