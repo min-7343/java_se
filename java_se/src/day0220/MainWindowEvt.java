@@ -28,10 +28,10 @@ public class MainWindowEvt extends WindowAdapter implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent ae) {//액션이벤트
-		if(ae.getSource()==mw.getJmiSubwin()) {//다이얼로그 실행
+		if(ae.getSource()==mw.getJmiSubwin()) {//다이얼로그 실행 //getter로 받은 열기
 			new SubWin(mw);//다이얼로그를 실생
 		}//end if
-		if(ae.getSource()==mw.getJmiClose()) {//윈도우 종료
+		if(ae.getSource()==mw.getJmiClose()) {//윈도우 종료//getter로 받은 닫기
 			windowClosing();
 		}//end if
 		

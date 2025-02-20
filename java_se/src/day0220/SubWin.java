@@ -31,7 +31,7 @@ public class SubWin extends JDialog {
 		add("Center",jlbl);
 		add("South",jpSouth);
 		
-		//이벤트 등록
+		//SubWindEvt 만들고 - 이벤트 등록
 		SubWinEvt swe=new SubWinEvt(this);
 		addWindowListener(swe);
 		jbtnClose.addActionListener(swe);

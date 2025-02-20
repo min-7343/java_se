@@ -8,8 +8,8 @@ import javax.swing.JMenuItem;
 @SuppressWarnings("serial")
 public class MainWindow extends JFrame {
 	//1.이벤트를 발생시키고 비교
-	private JMenuItem jmiSubwin;
-	private JMenuItem jmiClose;
+	private JMenuItem jmiSubwin; //열기
+	private JMenuItem jmiClose; //닫기
 	
 
 	public MainWindow() {
@@ -23,7 +23,7 @@ public class MainWindow extends JFrame {
 		
 		//메뉴아이템을 메뉴에 배치
 		jmDialog .add(jmiSubwin);
-		jmDialog .addSeparator();
+		jmDialog .addSeparator();//선만들고
 		jmDialog .add(jmiClose);
 		
 		//메뉴 메뉴바 배치
@@ -32,7 +32,7 @@ public class MainWindow extends JFrame {
 		//메뉴바를 Frame 배치
 		setJMenuBar(jmb);
 		
-		//이벤트 등록
+		//MainWindowEvt 만들고 - 이벤트 등록
 		MainWindowEvt mwe=new MainWindowEvt(this);
 		addWindowListener(mwe);//윈도우이벤트 등록
 		jmiSubwin.addActionListener(mwe);//액션이벤트등록
