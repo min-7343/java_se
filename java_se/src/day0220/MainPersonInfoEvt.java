@@ -23,9 +23,9 @@ import java.awt.event.WindowEvent;
 
 public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
 	
-	private PersonInfo user; //사용자 정보-만들 객체들
+	private PersonInfo user; //사용자 정보-만들 객체들//
 	
-	private MainPersonInfo mpi;
+	private MainPersonInfo mpi;//
 
 	
 	
