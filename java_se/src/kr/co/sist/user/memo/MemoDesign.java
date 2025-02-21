@@ -92,8 +92,8 @@ public class MemoDesign extends JFrame {
 		
 		
 		///////이벤트 등록/////
-		JavaMemoEvt jve= new JavaMemoEvt(this);
-		addWindowListener(jve);
+//		JavaMemoEvt jve= new JavaMemoEvt(this);
+//		addWindowListener(jve);
 		
 		
 		
