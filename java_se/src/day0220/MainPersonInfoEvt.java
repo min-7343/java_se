@@ -52,7 +52,7 @@ public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
 		String gender="";
 		//추가버튼
 		if (ae.getSource() == mpi.getInsert()) {
-			String name=mpi.getJtName().getText();//toString()하면 안나옴 오류.당연하잖아...
+			String name=mpi.getJtName().getText();//toString()하면 안나옴 오류(필드잖아).당연하잖아...
 			String ageText=mpi.getJtAge().getText();
 			int age=Integer.parseInt(ageText);
 			if(mpi.getJrbMan().isSelected()) {
@@ -71,10 +71,11 @@ public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
             mpi.getJtName().setText("");
             mpi.getJtAge().setText("");
             //////////왜 초기화안되는 거야...성별 라디오버튼 초기화 안됨.확인할것
-//            mpi.getBg().getSelection().setSelected(false);
+
             mpi.getJrbMan().setSelected(false);
             mpi.getJrbWoman().setSelected(false);
             mpi.getJtTel().setText("");
+            mpi.getBg().clearSelection();//버튼초기화 //추가된곳
 
 		}
 		//수정버튼
@@ -84,7 +85,7 @@ public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
                 PersonInfo selectUser = mpi.getPdlm().getElementAt(selectIndex);
                 mpi.getJtName().setText(selectUser.name);
          /////////////할 곳. 아 나이 왜안되니.............다른거부터하자...확인할것.여기물어보기
-                mpi.getJtAge().setText(String.valueOf(selectUser.age));
+                mpi.getJtAge().setText(String.valueOf(selectUser.age));//age객체를 String으로 변환
                 mpi.getJtTel().setText(selectUser.telNum);
                 if (selectUser.gender.equals("Male")) {
                 	mpi.getJrbMan().setSelected(true);

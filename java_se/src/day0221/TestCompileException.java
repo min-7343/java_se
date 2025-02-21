@@ -13,5 +13,7 @@ public class TestCompileException{
 			e.printStackTrace(); //콘솔에 에러 출력
 		}
 		
+		throws new Exception();
+		
 	}// main
 }// class
