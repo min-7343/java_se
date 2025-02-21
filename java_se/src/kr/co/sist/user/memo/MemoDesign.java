@@ -44,8 +44,6 @@ public class MemoDesign extends JFrame {
 		jmiClose=new JMenuItem("닫기");//파일 > 닫기
 		
 		
-		
-		
 		jmiFont=new JMenuItem("글꼴");//편집 > 글꼴
 		
 		jmiMeoInfo=new JMenuItem("메모장 정보");//도움말 > 메모장정보
@@ -91,6 +89,13 @@ public class MemoDesign extends JFrame {
 		jmb.add(jmHelp);
 		//10메뉴바를 JFrame에 설정
 		setJMenuBar(jmb);
+		
+		
+		///////이벤트 등록/////
+		JavaMemoEvt jve= new JavaMemoEvt(this);
+		addWindowListener(jve);
+		
+		
 		
 
 		//윈도우 크기 설정
@@ -138,9 +143,5 @@ public class MemoDesign extends JFrame {
 	
 	
 	//private => getter로 변화 alt shift s
-	
-	
-	
-	
 	
 }//class
