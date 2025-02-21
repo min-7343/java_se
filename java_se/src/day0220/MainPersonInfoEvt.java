@@ -71,6 +71,7 @@ public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
             mpi.getJtName().setText("");
             mpi.getJtAge().setText("");
             //////////왜 초기화안되는 거야...성별 라디오버튼 초기화 안됨.확인할것
+//            mpi.getBg().getSelection().setSelected(false);
             mpi.getJrbMan().setSelected(false);
             mpi.getJrbWoman().setSelected(false);
             mpi.getJtTel().setText("");
@@ -82,7 +83,7 @@ public class MainPersonInfoEvt extends WindowAdapter implements ActionListener {
 			if(selectIndex>=0) {
                 PersonInfo selectUser = mpi.getPdlm().getElementAt(selectIndex);
                 mpi.getJtName().setText(selectUser.name);
-         /////////////할 곳. 아 나이 왜안되니.............다른거부터하자...확인할것
+         /////////////할 곳. 아 나이 왜안되니.............다른거부터하자...확인할것.여기물어보기
                 mpi.getJtAge().setText(String.valueOf(selectUser.age));
                 mpi.getJtTel().setText(selectUser.telNum);
                 if (selectUser.gender.equals("Male")) {

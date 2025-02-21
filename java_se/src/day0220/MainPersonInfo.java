@@ -34,6 +34,7 @@ public class MainPersonInfo extends JFrame {
 	private JButton change;
 	private JButton delete;
 	private JButton close;
+	private ButtonGroup bg;
 	private JRadioButton jrbMan;
 	private JRadioButton jrbWoman;
 	
@@ -70,10 +71,10 @@ public class MainPersonInfo extends JFrame {
 		jtAge=new JTextField(15);
 		JPanel jplGender= new JPanel();//성별판넬
 		JLabel jlGender= new JLabel("성별");
-		jrbMan = new JRadioButton();
-		JLabel jlMan=new JLabel("남");
-		jrbWoman = new JRadioButton();
-		JLabel jlWoman=new JLabel("여");
+		jrbMan = new JRadioButton("남");
+//		JLabel jlMan=new JLabel("남");
+		jrbWoman = new JRadioButton("여");
+//		JLabel jlWoman=new JLabel("여");
 		//라디오버튼 그룹
 		ButtonGroup bg=new ButtonGroup();
 		bg.add(jrbMan);
@@ -97,9 +98,9 @@ public class MainPersonInfo extends JFrame {
 		jplAge.add(jtAge);
 		jplGender.add(jlGender);
 		jplGender.add(jrbMan);
-		jplGender.add(jlMan);
+//		jplGender.add(jlMan);
 		jplGender.add(jrbWoman);
-		jplGender.add(jlWoman);
+//		jplGender.add(jlWoman);
 		jplTel.add(jlTel);
 		jplTel.add(jtTel);
 		
@@ -138,7 +139,7 @@ public class MainPersonInfo extends JFrame {
 		
 		//크기 정하기
 		personListView.setSize(100,150);
-		setBounds(10,10,500,300);
+		setBounds(10,10,800,300);
 		
 		
 		setVisible(true);
@@ -170,6 +171,9 @@ public class MainPersonInfo extends JFrame {
 		return close;
 	}
 
+	public ButtonGroup getBg() {
+		return bg;
+	}
 	public JRadioButton getJrbMan() {
 		return jrbMan;
 	}
