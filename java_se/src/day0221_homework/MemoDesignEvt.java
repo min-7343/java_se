@@ -34,11 +34,6 @@ public class MemoDesignEvt extends WindowAdapter implements ActionListener {
 	public void actionPerformed(ActionEvent ae) {
 		Object obj = ae.getSource();
 		
-		StringBuilder sb = new StringBuilder();
-		String str = "";
-		if (obj == md.getJmiFont()) {
-			new FontInfoDialog(md);
-		}
 		/////////////// 1.파일 /////////////////////
 		if (obj == md.getJmiNew()) {// 새글
 			md.getJtaMemo().setText("");
