@@ -35,17 +35,9 @@ public class FontInfoDialogEvt extends WindowAdapter implements MouseListener {
 		String selectSize = fi.getSizeListView().getModel().getElementAt(selectSizeIndex);
 
 		styleInt = Font.PLAIN; //기본설정 스타일
-		//폰트
-		switch (selectFont) {
-		case "굴림":
-			break;
-		case "궁서체":
-			break;
-		case "Consolas":
-			break;
-		case "맑은고딕":
-			break;
-		}
+		//폰트 - 따로 설정 하지 않아도 적용됨
+		/////////글씨체 있는지 확인//////
+
 		// 스타일
 		switch (selectStyle) {
 		case "일반":
@@ -76,7 +68,7 @@ public class FontInfoDialogEvt extends WindowAdapter implements MouseListener {
 		
 	}// updateFont
 
-	////////// 취소버튼//////////
+  /////////// 취소버튼////////////////////
 	public void windowClosing() {
 		fi.dispose();
 	}
@@ -85,14 +77,9 @@ public class FontInfoDialogEvt extends WindowAdapter implements MouseListener {
 	public void windowClosing(WindowEvent we) {
 		windowClosing();
 	}
-	//////////////////////////
-	///메모장엑 폰트 적용시키기//////안된다....ㅎㅎㅎ.....확인할 곳.널널이라네
-	public void applyFontMemo() {
-		font = new Font(selectFont,styleInt,sizeInt);
-		fi.getMd().getJtaMemo().setFont(font);
-		fi.getMd().getJspJtaMemo().setFont(font);
-	}
-	///////////////////////////////////////////
+  ///////////////////////////////////////
+
+  ///////////////마우스 이벤트////////////////////////////////
 	@Override
 	public void mouseClicked(MouseEvent me) {
 		Object fobjt = me.getSource();
@@ -103,11 +90,15 @@ public class FontInfoDialogEvt extends WindowAdapter implements MouseListener {
 			updateFont(fi.getFontListView(), fi.getStyleListView(), fi.getSizeListView(), fi.getViewChar());
 		}//if
 		
+		//확인버튼 - 다시 해보기
 		if (fobjt == fi.getOkayB()) {
-			applyFontMemo();
+			font = new Font(selectFont,styleInt,sizeInt);
+			System.out.println("----------------"+fi.getMd());
+			fi.getMd().getJtaMemo().setFont(font);
 			windowClosing();
 			
 		}
+		//취소버튼
 		if (fobjt == fi.getCancleB()) {
 			windowClosing();
 		}

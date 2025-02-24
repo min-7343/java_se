@@ -58,6 +58,7 @@ public class MemoDesignEvt extends WindowAdapter implements ActionListener {
 		}
 		/////////////// 2.서식///////////////
 		if (obj == md.getJmiFont()) {
+			System.out.println("---------md is -----"+ md );
 			new FontInfoDialog(md);
 		}
 		/////////////// 3.도움말///////////////

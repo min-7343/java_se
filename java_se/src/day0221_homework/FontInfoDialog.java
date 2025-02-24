@@ -143,8 +143,13 @@ public class FontInfoDialog extends JDialog implements MouseListener{
 		add(okayB);
 		cancleB.setBounds(md.getX()+500, md.getY()+350, 90, 40);
 		add(cancleB);
-		/////////////레이아웃 끝///////////////////
-		/////////////이벤트등록///////////////////
+	////////////////레이아웃 끝///////////////////
+	////////////////이벤트등록///////////////////
+	
+		this.md=md;
+		//만들어질때 내가 어디서 왔는지 알려줘야 함
+		//=> 안쓰면 지역벽수가 되서 받아오는 값이 null이 된다. 기억하자!!!
+		//이것의 처음은 md 이다!! md에서 모든것을 받아와서 사용한는것
 		FontInfoDialogEvt fide =new FontInfoDialogEvt(this);
 		addWindowFocusListener(fide);
 		addMouseListener(fide);
@@ -159,7 +164,7 @@ public class FontInfoDialog extends JDialog implements MouseListener{
 		okayB.addMouseListener(fide);
 		cancleB.addMouseListener(fide);
 		
-	
+	//////////////////////////////////////////////////////
 		setBounds(md.getX()+100,md.getY()+100,700,500);
 		setVisible(true);
 		setResizable(false);
@@ -169,6 +174,7 @@ public class FontInfoDialog extends JDialog implements MouseListener{
 	}//end FontInfoDialog
 
 	public MemoDesign getMd() {
+		System.out.println("----FontInfoDialog----------"+ md);
 		return md;
 	}
 

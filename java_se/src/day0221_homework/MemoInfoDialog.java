@@ -1,14 +1,13 @@
 package day0221_homework;
 
+
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
+
 import javax.swing.JTextArea;
 
 /**
@@ -46,5 +45,10 @@ public class MemoInfoDialog extends JDialog {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			
 	}//MemoInfoDialog
+	
+//	public static void selecInfo() {
+//		JOptionPane.showMessageDialog(null, "Java 메모장 Version1.0이 메모장을 KPL(KangPubulic License)로서 아무나 가져다 변횐 및 배초 가능합니다."
+//				+ "\n편하게 가져다 사용해주세요.","메모장정보",JOptionPane.INFORMATION_MESSAGE);
+//	}
 
 }//class
