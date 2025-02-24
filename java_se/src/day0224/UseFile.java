@@ -14,8 +14,10 @@ public class UseFile {
 		File file =new File("C:/dev/temp/java_read.txt");
 		System.out.println(file);  //toString을 오버라이딩해서 경로가 나온다.
 		//2. method 호출
-		//파일이 존재?
-		System.out.println(file.exists());
+//		System.out.println(file.exists());// boolean 파일 존재? 
+		if( !file.exists()) {//파일이 존재하는지 
+			return; //없으면 아래로 내려가지 않는다.
+		}
 	}//fileInfo
 	
 	//디렉토리에 대한 일
