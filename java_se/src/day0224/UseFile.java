@@ -91,10 +91,21 @@ public class UseFile {
 	// 파일명 변경
 	public void fileRename() {
 
+		//1. 이전 파일명
+		File originalFile= new File("c:/dev/temp/java_read2.txt");
+		//2. 변경할 파일명
+		File renamelFile= new File("c:/dev/temp/kws.txt");
+		//3. 변경
+		originalFile.renameTo(renamelFile);
 	}// fileRename
 
 	// 파일 삭제
 	public void fileRemove() {
+		
+		//1.삭제할 파일 선택
+		File renamelFile= new File("c:/dev/temp/kws.txt");
+		//2.삭제
+		renamelFile.delete();
 
 	}// fileRemove
 
