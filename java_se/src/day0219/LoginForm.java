@@ -57,7 +57,7 @@ public class LoginForm extends JFrame {
 		
 		//배치
 		add("North",jlblTitle);
-		add("Ceter",jpCenter);
+		add("Center",jpCenter);
 		
 		//
 		LoginFormEvt lfe=new LoginFormEvt(this);
@@ -77,6 +77,7 @@ public class LoginForm extends JFrame {
 	
 	public static void main(String[] args) {
 		new LoginForm();
+		System.out.println("---");
 	}//main
 	public JTextField getJtfId() {
 		return jtfId;

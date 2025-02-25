@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 
 public class LoginEvent extends KeyAdapter {
-
+/*
 	private LoginForm lf;
 
 	public LoginEvent(LoginForm lf) {
@@ -15,7 +15,7 @@ public class LoginEvent extends KeyAdapter {
 	}// LoginEvent
 
 	public void keyReleased(KeyEvent lf) {
-/*		//키보드의 키가 올라올 때 작업
+		//키보드의 키가 올라올 때 작업
 		System.out.println("여기가 커서 있는 곳");
 		
 		switch(lf.getKeyCode()) {
@@ -44,8 +44,8 @@ public class LoginEvent extends KeyAdapter {
 				lf.getJtfId().requestFocus();// 아이디로 돌아감
 	
 			}
-		}*/
+		}
 	}
-	
+	*/
 
 }
