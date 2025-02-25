@@ -44,8 +44,8 @@ public class LoginEvent extends KeyAdapter {
 				lf.getJtfId().requestFocus();// 아이디로 돌아감
 	
 			}
-		}
+		}*/
 	}
-	*/
+	
 
 }
