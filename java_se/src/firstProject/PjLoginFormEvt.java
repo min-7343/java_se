@@ -2,11 +2,8 @@ package firstProject;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -15,7 +12,27 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class PjLoginFormEvt extends WindowAdapter implements ActionListener, MouseListener {
+/**
+ * 주의 : 마우스 리스너 없앴음
+ * 
+ * mapLoginData : 데이터가 저장된 map
+ * 
+ * loginB : 확인 버튼
+ * 
+ * <아이디 관련>
+ * jtfId: 아이디 입력하는곳
+ * flagId : boolean - 아이디 확인(있는지)
+ * 지역변수 id : id -String
+ * 
+ * <비밀번호 관련>
+ * jpfPass : 패스워드 필드
+ * flagPass : 패스워드의 유무 / 정확한 값인지 확인
+ * 지역변수 pass : 패스워드 - String
+ * sbPass : StringBuilder로 받은 패스워드필드
+ * 
+ * 
+ */
+public class PjLoginFormEvt extends WindowAdapter implements ActionListener {
 
 	private PjLoginForm pj;
 	private Map<String, String> mapLoginData;
@@ -24,147 +41,99 @@ public class PjLoginFormEvt extends WindowAdapter implements ActionListener, Mou
 	private JPasswordField jpfPass;
 	private JButton loginB;
 
-	private boolean flagB; // 확인버튼
-	private boolean flagId; // Id
-	private boolean flagPass; // password
+	private boolean flagId; // ID Flag
+	private boolean flagPass; // PsaaWord Flag
 
 	public PjLoginFormEvt(PjLoginForm pj) {
-
 		this.pj = pj;
 		jtfId = pj.getJtfId();
 		jpfPass = pj.getJpfPass();
 		loginB = pj.getLoginB();
 
-		mapLoginData = new LinkedHashMap<String, String>();
+		mapLoginData = new LinkedHashMap<>();
 		mapLoginData.put("admin", "1234");
-		mapLoginData.put("root", "1111"); // 2번 문서 생성할 권한 없음
+		mapLoginData.put("root", "1111");
 		mapLoginData.put("administrator", "12345");
+	}
 
-	}// PjLoginFormEvt
-
+	// ID 확인
 	public boolean idChk() {
-		System.out.println("idChk()에 들어옴");
-		flagId = false;
-		String id = jtfId.getText().trim();// 앞뒤 공백 없애기trim- 앞뒤공백을 제거하여 아이디를 저장
-		flagId = !id.isEmpty();// 아이디가 비어있지 않니??
-		if (flagId) {// 아이디에 값이 있는 경우
-			jpfPass.requestFocus();// 커서를 패스워드로 이동
+		String id = jtfId.getText().trim(); // 빈칸 지우기
+		flagId = !id.isEmpty(); // ID 비어있지 않지?
+
+		if (flagId) { // 값이 있다면
+			jpfPass.requestFocus(); // 패스워드 필드로 커서 옮겨
 		} else {
-			jtfId.requestFocus();// 커서를 아이디 입력으로 이동
-		} // end if
-
-		// 리턴은 순수하게 값만 내보내게 하는 것이 좋다.
-		return flagId;
-	}// idChk
-
-	public void passChk() {
-
-		flagPass = false;
-
-		if (!idChk()) {// 아이디가 없다면
-			return;
+			JOptionPane.showMessageDialog(null, "아이디를 확인하세요");
+			jtfId.requestFocus(); // 아니면 비밀번호 커서에서 아이디로 가.
 		}
-		// char[]을 하나의 문자열로 만들어서 저장 => String 에서 제공하는 모은 기능을 사용할 수 있다.
-		String pass = new String(jpfPass.getPassword());// 패스워드 체크할래
+		return flagId;
+	}
+
+	// 바밀번호 확인
+	public boolean passChk() {
+		if (!idChk())
+			return false; // 얼리 리턴.ID확인이 true가 아니면 돌아가, return false
+
+		// 입력받은 패스워드
+		StringBuilder sbPass = new StringBuilder();
+		sbPass.append(jpfPass.getPassword());
+		String pass = sbPass.toString();
 		System.out.println(pass);
-		//////////////////// 비밀번호 입력 되었는지 확인///////////////////////
-		if (pass.isEmpty()) {// 비밀번호가 없음
+		pass = pass.trim();
+
+		if (pass.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "비밀번호를 확인하세요");
 			jpfPass.requestFocus();
-			return; // 없으면 돌아가
+			return false;
 		} // end if
 
-		// 아이디와 비밀번호 있음
-		// 로그인 수행
-		String id = jtfId.getText(); // id를 받아오는 곳
-		String msg = "아이디와 비밀번호를 확인하세요";
-		if (mapLoginData.containsKey(id) && mapLoginData.containsValue(pass)) {
-			flagPass = true;
-		} // end if
+		String id = jtfId.getText().trim(); // 아이디값
+		// 린크맵 -> 사용해서 아이디 비번 맞추기 (key - values)
+		flagPass = mapLoginData.containsKey(id) && mapLoginData.get(id).equals(pass);
+
+		if (flagPass) {
+			return flagPass;
+		}else {
+			JOptionPane.showMessageDialog(null, "아이디나 비밀번호를 확인하세요");
+			jtfId.setText("");
+			jpfPass.setText("");
+			return passChk();
+		}
+
 	}// passChk
 
+	//확인버튼
 	public boolean okayB() {
-		flagB = false;
-
 		if (flagId && flagPass) {
-			flagB = true;
-			return flagB;
+			return true;
 		} else {
 			JOptionPane.showMessageDialog(null, "아이디나 비밀번호를 확인하세요");
+			jtfId.setText("");
+			jpfPass.setText("");
 			return idChk();
-		}
-		// 아이디 검사
-		// 비번 검사
-		// 버튼 눌리면 둘 다 체그
-		// 통과-> 1번
-		// 틀림 -> 다시 로그인창
-
-	}
+		} // else
+	}// okayB
 
 	public void windowClosing() {
 		pj.dispose();
-	}
+	}// windowClosing
+
 	@Override
 	public void windowClosing(WindowEvent we) {
 		windowClosing();
-	}
+	}// windowClosing
 
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		Object obj = ae.getSource();
 
-		if (obj == loginB) { // 확인 버튼에서 id pass 일치하면 true
-			this.okayB();
-			// 1번창으로 가기
-			if (obj == jtfId) {
-				System.out.println("아이디입력하러감");
-				this.idChk();
-				System.out.println("아이디입력됨");
-			} // end if
-			if (obj == jpfPass) {
-				System.out.println("비번입력하러감");
-				this.passChk();
-			}
-		} // end if
+		if (obj == loginB) {
+			if (passChk()) {
+				JOptionPane.showMessageDialog(null, "로그인에 성공했습니다");
+				new AnalysisMonitor(pj);
+				windowClosing();
+			} // end if안
+		} // end if밖
 	}// actionPerformed
-
-	@Override
-	public void mouseClicked(MouseEvent me) {
-		Object objM = me.getSource();
-
-		if (objM == loginB) { // 확인 버튼에서 id pass 일치하면 true
-			this.okayB();
-			// 1번창으로 가기
-		}
-		if (objM == jtfId) {
-			System.out.println("아이디입력하러감");
-			this.idChk();
-			System.out.println("아이디입력됨");
-		} // end if
-		if (objM == jpfPass) {
-			System.out.println("비번입력하러감");
-			this.passChk();
-		}
-
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-
-	}
-
-}
+}// class

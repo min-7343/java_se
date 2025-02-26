@@ -118,11 +118,9 @@ public class PjLoginForm extends JFrame{
 		jtfId.addActionListener(plre);
 		jpfPass.addActionListener(plre);
 		loginB.addActionListener(plre);
-		jtfId.addMouseListener(plre);
-		jpfPass.addMouseListener(plre);
-		loginB.addMouseListener(plre);
+
 		
-//		setBounds(50,50,400,500); //1차
+
 		setBounds(50,50,400,300);//2차
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
