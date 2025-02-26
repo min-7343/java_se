@@ -16,7 +16,7 @@ import javax.swing.border.TitledBorder;
 /**
  * 마우스 이벤트 처리
  */
-@SuppressWarnings("serial")
+
 public class TestMouseEvent extends JFrame implements MouseListener{ 
 	private DefaultComboBoxModel<String> dcbm; //getter로 접근가능
 	private JComboBox<String> jcbDomain;
