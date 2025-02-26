@@ -23,7 +23,6 @@ import javax.swing.border.LineBorder;
  * 
  * 버튼
  * loginB: 확인 버튼
-
  * 
  * 글씨체
  * fontLg : 로고

@@ -78,10 +78,8 @@ public class PjLoginFormEvt extends WindowAdapter implements ActionListener, Mou
 		String id = jtfId.getText(); // id를 받아오는 곳
 		String msg = "아이디와 비밀번호를 확인하세요";
 		if (mapLoginData.containsKey(id) && mapLoginData.containsValue(pass)) {
-			msg = "로그인 성공.";
 			flagPass = true;
 		} // end if
-		JOptionPane.showMessageDialog(null, msg);
 	}// passChk
 
 	public boolean okayB() {
@@ -117,16 +115,16 @@ public class PjLoginFormEvt extends WindowAdapter implements ActionListener, Mou
 		if (obj == loginB) { // 확인 버튼에서 id pass 일치하면 true
 			this.okayB();
 			// 1번창으로 가기
+			if (obj == jtfId) {
+				System.out.println("아이디입력하러감");
+				this.idChk();
+				System.out.println("아이디입력됨");
+			} // end if
+			if (obj == jpfPass) {
+				System.out.println("비번입력하러감");
+				this.passChk();
+			}
 		} // end if
-		if (obj == jtfId) {
-			System.out.println("아이디입력하러감");
-			this.idChk();
-			System.out.println("아이디입력됨");
-		} // end if
-		if (obj == jpfPass) {
-			System.out.println("비번입력하러감");
-			this.passChk();
-		}
 	}// actionPerformed
 
 	@Override

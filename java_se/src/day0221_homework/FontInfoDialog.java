@@ -174,7 +174,6 @@ public class FontInfoDialog extends JDialog implements MouseListener{
 	}//end FontInfoDialog
 
 	public MemoDesign getMd() {
-		System.out.println("----FontInfoDialog----------"+ md);
 		return md;
 	}
 

@@ -22,7 +22,7 @@ public class MemoInfoDialog extends JDialog {
 		super(md,"메모장 정보",true);
 		//줄내리는 부분 찾기
 		JPanel jpl=new JPanel();
-		JTextArea jta=new JTextArea("Java 메모장 Version1.0이 메모장을 KPL(KangPubulic License)로서 아무나 가져다 변횐 및 배초 가능합니다."
+		JTextArea jta=new JTextArea("Java 메모장 Version1.0이 메모장을 KPL(KangPubulic License)로서 아무나 가져다 변횐 및 배포 가능합니다."
 				+ "\n편하게 가져다 사용해주세요.");
 
 		JButton closeBt = new JButton("닫기");
