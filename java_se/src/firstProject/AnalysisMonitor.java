@@ -28,7 +28,7 @@ public class AnalysisMonitor extends JDialog {
 		AnalysisMethods am = new AnalysisMethods();
 
 		// 파일불러오기 (FileChooser은 기능 구현 후 만들기)
-		File file = new File("C:/Users/user/Desktop/07.조별과제/sist_input_1.log");
+		File file = new File("C:/Users/USER/Desktop/프로젝트/sist_input_1.log");
 
 		if (!file.exists()) {
 			JOptionPane.showMessageDialog(null, file + " 이 존재하지 않습니다. 경로를 확인하세요.", "파일 오류", JOptionPane.ERROR_MESSAGE);
@@ -47,14 +47,6 @@ public class AnalysisMonitor extends JDialog {
 		logString = new String[2000];
 		
 		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-//			//// readLine
-//			while ((line = reader.readLine()) != null) {
-//				logString[lineCount] = line; // 문자열에 넣고
-//				textArea.setText( logString[lineCount] );
-//				lineCount++; // 라인수 count ++
-//			}
-//			textArea.setText( ); // 텍스트에 적고
-			
         ////StringBuilder	
            StringBuilder sbR = new StringBuilder();
             //배열 초기화
@@ -72,11 +64,20 @@ public class AnalysisMonitor extends JDialog {
 			e.printStackTrace();
 		} // end catch
 
-		// 단어 카운트
+		// 1.단어 카운트
 		am.wordCount(logString, lineCount);
-		// 브라우저별
+		// 2.브라우저별
 		am.accessCountRate(logString, lineCount);
-
+		// 3.세션별 
+		am.succesfullPerformance(logString, lineCount);
+		
+		// 4.시간
+		// 5. 403번 횟수, 비율
+		am.unusualRequest(logString, lineCount);
+		// 6. books에 대한 요청 URL중 에러(500)가 발생한 횟수, 비율 구하기
+		am.requestBooks(logString, lineCount);
+		
+		
 //      System.out.println(lineCount); //줄 1987...
 		JScrollPane jsp = new JScrollPane(textArea);
 		jsp.setBounds(50, 100, 510, 400);
