@@ -58,6 +58,7 @@ public class SmpleChatClient extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 		new SmpleChatClient();
+
 	}//main
 
 }//class
