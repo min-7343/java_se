@@ -184,14 +184,13 @@ public class AnalysisMethods {
 		// 정상적인 시간 로그를 갖고 있는 배열( standardString[] )을 다시 만들고
 		// 그 배열에서 시간 부분만 가지고 와서 배열( timeString[] )에 저장
 		String[] standardString =new String[standardTime];
+		String[] timeString=new String[standardTime];
 		for(int i=0;i<lineCount;i++) {
 			Matcher m2 = timePattern.matcher(logString[i]);
 			if(m2.matches()) {
 				standardString[i]=logString[i];
-				
-				if (standardString[i].split(reg))
+				timeString[i]=standardString[i].split(":").toString();
 				//인덱스 사용해서 hashMap에 넣어주기
-				
 				
 				
 			}//end if
