@@ -28,7 +28,7 @@ public class AnalysisMonitor extends JDialog {
 		AnalysisMethods am = new AnalysisMethods();
 
 		// 파일불러오기 (FileChooser은 기능 구현 후 만들기)
-		File file = new File("C:/Users/USER/Desktop/프로젝트/sist_input_1.log");
+		File file = new File("C:/Users/user/Desktop/07.조별과제/sist_input_1.log");
 
 		if (!file.exists()) {
 			JOptionPane.showMessageDialog(null, file + " 이 존재하지 않습니다. 경로를 확인하세요.", "파일 오류", JOptionPane.ERROR_MESSAGE);
