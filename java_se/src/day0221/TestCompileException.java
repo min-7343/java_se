@@ -6,14 +6,14 @@ package day0221;
 public class TestCompileException{
 
 	public static void main(String[] args) throws ClassNotFoundException {
-		try {
-			Class c= Class.forName("day0221.TestCompileException");
-			System.out.println("로딩된 클래스"+c);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace(); //콘솔에 에러 출력
-		}
-		
-		throws new Exception();
-		
+//		try {
+//			Class c= Class.forName("day0221.TestCompileException");
+//			System.out.println("로딩된 클래스"+c);
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace(); //콘솔에 에러 출력
+//		}
+//		
+//		throws new Exception();
+//		
 	}// main
 }// class
